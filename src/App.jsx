@@ -4,6 +4,9 @@ import brandingImage from './assets/branding.png'
 import gdImage from './assets/gd.png'
 import caseStudy1 from './assets/casestudy1.png'
 import caseStudy2 from './assets/sb.png'
+import heroImage1 from './assets/1.png'
+import heroImage2 from './assets/2.png'
+import heroImage3 from './assets/3.png'
 import { useState, useEffect } from 'react'
 import Portfolio from './Portfolio'
 
@@ -70,6 +73,17 @@ function App() {
           <p className="hero-subparagraph">
             We aim to be the marketing agency you can finally settle down with. This could be a long-term relationship, built on creativity, results, and a healthy dose of 'we told you so, in a good way of course.
           </p>
+          <div className="hero-image-containers">
+            <div className="hero-image-container">
+              <img src={heroImage1} alt="Hero showcase 1" />
+            </div>
+            <div className="hero-image-container">
+              <img src={heroImage2} alt="Hero showcase 2" />
+            </div>
+            <div className="hero-image-container">
+              <img src={heroImage3} alt="Hero showcase 3" />
+            </div>
+          </div>
         </div>
         <div className="hero-background"></div>
       </section>
@@ -185,11 +199,11 @@ function App() {
                   <p className="work-item-description">How we optimised SimpleGhar's YouTube strategy helping them crack the million's club ↗</p>
                 </a>
                 <a href="#" target="_blank" rel="noopener noreferrer" className="work-item">
-                  <h3 className="work-item-title">02</h3>
+                  <h3 className="work-item-title">02</h>
                   <p className="work-item-description">Branding and Visual Design for The Spot Concerts ↗</p>
                 </a>
                 <a href="#" target="_blank" rel="noopener noreferrer" className="work-item">
-                  <h3 className="work-item-title">03</h3>
+                  <h3 className="work-item-title">03</h>
                   <p className="work-item-description">How we ranked articles in the top 10 internationally for ElectronicsHub↗</p>
                 </a>
               </div>
@@ -222,6 +236,63 @@ function App() {
             >
               Sticker Blast Logo and Brand Identity Branding Work ↗
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Adlyst Section */}
+      <section className="why-choose-section">
+        <div className="why-choose-container">
+          <div className="why-choose-content">
+            <div className="why-choose-text">
+              <div className="why-choose-label">
+                WHY US
+              </div>
+              <h2 className="why-choose-heading">
+                Why should you choose Adlyst?
+              </h2>
+              <p className="why-choose-description">
+                We're a marketing agency, which means the point for our existence is to help you market your products or services better, however, this is the part where we market ourselves
+              </p>
+              <div className="why-choose-features">
+                <div className="why-choose-block">
+                  <h3 className="why-choose-feature-title">01</h3>
+                  <h4 className="why-choose-feature-heading">Backed by a Powerhouse Network</h4>
+                  <p className="why-choose-feature-description">We bring together a vast talent pool — including top in-house experts — to deliver hands-on excellence across every project, managing multiple clients seamlessly.</p>
+                </div>
+                <div className="why-choose-block">
+                  <h3 className="why-choose-feature-title">02</h3>
+                  <h4 className="why-choose-feature-heading">The No-BS Personal Touch</h4>
+                  <p className="why-choose-feature-description">We cut the fluff and keep it real. Working with us feels like teaming up with a friend who's brutally honest, always dependable, and genuinely has your back.</p>
+                </div>
+                <div className="why-choose-block">
+                  <h3 className="why-choose-feature-title">03</h3>
+                  <h4 className="why-choose-feature-heading">Polite, Always. Pushy, Never.</h4>
+                  <p className="why-choose-feature-description">Does it help if we say please? We think so — because respect and collaboration are built into everything we do.</p>
+                </div>
+              </div>
+              <div className="why-choose-footer-text">
+                <p className="why-choose-footer-main">OUR COPYWRITER GOT A RAISE AFTER COMING UP WITH THE LAST ONE,</p>
+                <p className="why-choose-footer-quote">"THAT SHIT CREATIVE AS HELL DAWG"</p>
+              </div>
+            </div>
+            <div className="why-choose-image">
+              <div className="why-choose-image-placeholder">
+                {/* Image placeholder - to be filled later */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Say I Do Section */}
+      <section className="say-i-do-section">
+        <div className="say-i-do-container">
+          <div className="say-i-do-content">
+            <h2 className="say-i-do-heading">
+              We're the marketing agency you can finally settle down with. So, will you? <span className="say-i-do-highlight">I Do</span>
+            </h2>
+            <button className="say-i-do-button">I Do</button>
           </div>
         </div>
       </section>
