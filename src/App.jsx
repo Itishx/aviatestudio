@@ -86,6 +86,38 @@ function App() {
         </div>
       </section>
 
+      {/* Metrics Section */}
+      <section className="metrics-section">
+        <div className="metrics-container">
+          <p className="metrics-intro">
+            Aviate empowers founders and early-stage startups to gain visibility, scale faster, and grow with structured intelligence.
+          </p>
+
+          <div className="metrics-grid">
+            <div className="metrics-card">
+              <h3 className="metrics-stat">1M+</h3>
+              <p className="metrics-description">
+                Views generated through our strategies.
+              </p>
+            </div>
+
+            <div className="metrics-card">
+              <h3 className="metrics-stat">5+</h3>
+              <p className="metrics-description">
+                Clients onboarded since launch — and growing fast.
+              </p>
+            </div>
+
+            <div className="metrics-card">
+              <h3 className="metrics-stat">83%</h3>
+              <p className="metrics-description">
+                Average increase in visibility through Aviate's growth systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="intelligence-section" id="services">
         <div className="intelligence-container">
@@ -281,7 +313,7 @@ function App() {
             <p className="say-i-do-description">
               Let's build something extraordinary together. Whether you're looking to scale your brand, reach new audiences, or transform your digital presence, we're here to make it happen. Ready to take the next step?
             </p>
-            <button className="say-i-do-button">I Do</button>
+            <button className="say-i-do-button">I do</button>
             <div className="say-i-do-images">
               <div className="say-i-do-slider-wrapper">
                 <div className="say-i-do-image-container">

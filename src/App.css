@@ -280,7 +280,7 @@ em {
 /* ===== MISSION SECTION ===== */
 .mission-section {
   background: #000000;
-  padding: 6rem 0;
+  padding: 10rem 0;
   border-bottom: 1px solid rgba(255, 140, 0, 0.1);
 }
 
@@ -298,6 +298,19 @@ em {
   line-height: 1;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.2s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mission-text {
@@ -310,10 +323,123 @@ em {
   font-family: 'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   max-width: 100%;
   letter-spacing: -0.3px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.4s forwards;
 }
 
 .mission-word {
   display: none;
+}
+
+/* ===== METRICS SECTION ===== */
+.metrics-section {
+  background: #000000;
+  padding: 8rem 0;
+  border-bottom: 1px solid rgba(255, 140, 0, 0.1);
+}
+
+.metrics-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.metrics-intro {
+  font-size: 1.2rem;
+  color: rgba(204, 204, 204, 1);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 4rem auto;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.metrics-card {
+  background: transparent;
+  border: 1px solid #1a1a1a;
+  border-radius: 1rem;
+  padding: 6rem 2.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.metrics-card:hover {
+  transform: translateY(-4px);
+  background: rgba(10, 10, 10, 1);
+  border-color: rgba(255, 140, 0, 0.2);
+}
+
+@keyframes shimmerGradient {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.metrics-stat {
+  font-size: 3rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #f03612, #ffb347, #f03612);
+  background-size: 1000px 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerGradient 3s ease-in-out infinite;
+  margin: 0 0 0.5rem 0;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.metrics-description {
+  font-size: 1rem;
+  color: #999999;
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .metrics-section {
+    padding: 4rem 0;
+  }
+
+  .metrics-container {
+    padding: 0 1.5rem;
+  }
+
+  .metrics-intro {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .metrics-card {
+    padding: 4rem 2rem;
+  }
+
+  .metrics-stat {
+    font-size: 2.5rem;
+  }
+
+  .metrics-description {
+    font-size: 0.95rem;
+  }
 }
 
 /* ===== SERVICES SECTION ===== */
@@ -953,7 +1079,7 @@ em {
   align-items: flex-start;
   justify-content: flex-start;
   text-align: left;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .say-i-do-heading {
@@ -996,8 +1122,8 @@ em {
   transition: all 0.3s ease;
   font-family: 'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-top: 1rem;
+  text-transform: lowercase;
+  margin-top: 0.5rem;
 }
 
 .say-i-do-button:hover {
