@@ -2,12 +2,24 @@ import './App.css'
 import logo from './assets/aviatestudio.png'
 import brandingImage from './assets/branding.png'
 import gdImage from './assets/gd.png'
-import { useState } from 'react'
+import caseStudy1 from './assets/casestudy1.png'
+import caseStudy2 from './assets/sb.png'
+import { useState, useEffect } from 'react'
 import Portfolio from './Portfolio'
 
 function App() {
   const [currentImage, setCurrentImage] = useState(brandingImage)
   const [currentPage, setCurrentPage] = useState('home')
+  const [scrollY, setScrollY] = useState(0)
+
+  // Handle scroll for parallax effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const handleServiceHover = (serviceType) => {
     switch(serviceType) {
@@ -65,6 +77,9 @@ function App() {
       {/* Mission Section */}
       <section className="mission-section">
         <div className="mission-container">
+          <div className="mission-label">
+            ABOUT
+          </div>
           <p className="mission-text">
             At Aviate, our mission is simple: to fuel your venture's growth with strategic, optimized solutions. We don't just deliver results—we make the process seamless, engaging, and tailored to your vision. Your goals become ours, and together, we craft a brand presence that commands recognition. With us, you don't just dream of success—you see it in real numbers.
           </p>
@@ -72,7 +87,7 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section className="intelligence-section">
+      <section className="intelligence-section" id="services">
         <div className="intelligence-container">
           <div className="intelligence-content">
             <div className="intelligence-image">
@@ -123,6 +138,90 @@ function App() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Study Section */}
+      <section className="case-study-section">
+        <div className="case-study-container">
+          <div 
+            className="case-study-image-wrapper"
+          >
+            <img 
+              src={caseStudy1} 
+              alt="Apple Party Mode Branding Case Study" 
+              className="case-study-image"
+            />
+            <a 
+              href="https://medium.com/design-bootcamp/introducing-party-mode-and-road-trip-mode-on-apple-music-enhancing-social-and-travel-music-dd846ae3be19"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="case-study-label"
+            >
+              Apple Party Mode Branding Case Study ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Work and Clientele Section */}
+      <section className="work-clientele-section">
+        <div className="work-clientele-container">
+          <div className="work-clientele-content">
+            <div className="work-clientele-text">
+              <div className="work-clientele-label">
+                What we've done
+              </div>
+              <h2 className="work-clientele-heading">
+                Our Work and Clientale
+              </h2>
+              <p className="work-clientele-description">
+                This is some of the work we've done for the clients who chose to work with us at some beautiful point in their lives.
+              </p>
+              <div className="work-clientele-items">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="work-item">
+                  <h3 className="work-item-title">01</h3>
+                  <p className="work-item-description">How we optimised SimpleGhar's YouTube strategy helping them crack the million's club ↗</p>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="work-item">
+                  <h3 className="work-item-title">02</h3>
+                  <p className="work-item-description">Branding and Visual Design for The Spot Concerts ↗</p>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="work-item">
+                  <h3 className="work-item-title">03</h3>
+                  <p className="work-item-description">How we ranked articles in the top 10 internationally for ElectronicsHub↗</p>
+                </a>
+              </div>
+            </div>
+            <div className="work-clientele-image">
+              <div className="work-clientele-image-placeholder">
+                {/* Image placeholder - to be filled later */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Study Section 2 */}
+      <section className="case-study-section">
+        <div className="case-study-container">
+          <div 
+            className="case-study-image-wrapper"
+          >
+            <img 
+              src={caseStudy2} 
+              alt="Sticker Blast Logo and Brand Identity Branding Work" 
+              className="case-study-image"
+            />
+            <a 
+              href="https://adlyst.medium.com/sticker-blast-logo-and-brand-identity-b61b4fae6ab9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="case-study-label"
+            >
+              Sticker Blast Logo and Brand Identity Branding Work ↗
+            </a>
           </div>
         </div>
       </section>
