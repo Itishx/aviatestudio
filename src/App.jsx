@@ -199,11 +199,11 @@ function App() {
                   <p className="work-item-description">How we optimised SimpleGhar's YouTube strategy helping them crack the million's club ↗</p>
                 </a>
                 <a href="#" target="_blank" rel="noopener noreferrer" className="work-item">
-                  <h3 className="work-item-title">02</h>
+                  <h3 className="work-item-title">02</h3>
                   <p className="work-item-description">Branding and Visual Design for The Spot Concerts ↗</p>
                 </a>
                 <a href="#" target="_blank" rel="noopener noreferrer" className="work-item">
-                  <h3 className="work-item-title">03</h>
+                  <h3 className="work-item-title">03</h3>
                   <p className="work-item-description">How we ranked articles in the top 10 internationally for ElectronicsHub↗</p>
                 </a>
               </div>
@@ -290,9 +290,20 @@ function App() {
         <div className="say-i-do-container">
           <div className="say-i-do-content">
             <h2 className="say-i-do-heading">
-              We're the marketing agency you can finally settle down with. So, will you? <span className="say-i-do-highlight">I Do</span>
+              We're the marketing agency you can finally settle down with. <span className="say-i-do-highlight">So, will you?</span>
             </h2>
             <button className="say-i-do-button">I Do</button>
+            <div className="say-i-do-images">
+              <div className="say-i-do-image-container">
+                <img src={heroImage1} alt="Portfolio showcase 1" />
+              </div>
+              <div className="say-i-do-image-container">
+                <img src={heroImage2} alt="Portfolio showcase 2" />
+              </div>
+              <div className="say-i-do-image-container">
+                <img src={heroImage3} alt="Portfolio showcase 3" />
+              </div>
+            </div>
           </div>
         </div>
       </section>

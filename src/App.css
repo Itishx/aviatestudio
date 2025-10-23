@@ -312,10 +312,6 @@ em {
   letter-spacing: -0.3px;
 }
 
-@keyframes wordHighlight {
-  display: none;
-}
-
 .mission-word {
   display: none;
 }
@@ -941,7 +937,7 @@ em {
 /* ===== SAY I DO SECTION ===== */
 .say-i-do-section {
   background: #000000;
-  padding: 6rem 0;
+  padding: 8rem 0;
   border-bottom: 1px solid rgba(255, 140, 0, 0.1);
 }
 
@@ -954,34 +950,37 @@ em {
 .say-i-do-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
-  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 3rem;
 }
 
 .say-i-do-heading {
-  font-size: clamp(2.8rem, 5vw, 3.5rem);
+  font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.95);
-  line-height: 1.2;
+  color: #ffffff;
+  line-height: 1;
   margin: 0;
   max-width: 900px;
   font-family: 'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .say-i-do-highlight {
-  color: #ff5a00;
-  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: #ffffff;
+  display: inline;
 }
 
 .say-i-do-button {
-  padding: 1rem 2.5rem;
-  font-size: 1rem;
+  padding: 1.2rem 3rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  color: #000000;
-  background: #ff5a00;
-  border: none;
+  color: #ffffff;
+  background: #000000;
+  border: 2px solid #ffffff;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -991,9 +990,46 @@ em {
 }
 
 .say-i-do-button:hover {
-  background: #ff3131;
+  background: #ff5a00;
+  border-color: #ff5a00;
+  color: #ffffff;
   transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(255, 90, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(255, 90, 0, 0.4);
+}
+
+.say-i-do-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 1rem;
+}
+
+.say-i-do-image-container {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 140, 0, 0.1);
+  border: 1px solid rgba(255, 140, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.say-i-do-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.say-i-do-image-container:hover {
+  transform: scale(1.05);
+  border-color: rgba(255, 140, 0, 0.5);
+  box-shadow: 0 8px 24px rgba(255, 140, 0, 0.15);
 }
 
 @media (max-width: 768px) {
@@ -1002,12 +1038,21 @@ em {
   }
 
   .say-i-do-heading {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .say-i-do-button {
-    padding: 0.85rem 2rem;
-    font-size: 0.95rem;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+  }
+
+  .say-i-do-images {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .say-i-do-image-container {
+    height: 250px;
   }
 }
 
