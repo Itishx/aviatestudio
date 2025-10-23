@@ -83,7 +83,7 @@
 
 .nav-menu a:hover {
   color: #000;
-  background: #ff3131;
+  background: #f03612;
 }
 
 .nav-menu a::after {
@@ -101,7 +101,7 @@
 }
 
 .cta-link:hover {
-  background: #ff3131;
+  background: #f03612;
   color: #000;
 }
 
@@ -481,7 +481,7 @@ em {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #ff5a00, #ffb347, #ff5a00);
+  background: linear-gradient(90deg, #f03612, #ffb347, #f03612);
   background-size: 1000px 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -525,7 +525,7 @@ em {
 }
 
 .feature-block:hover .feature-title {
-  color: #ff5a00;
+  color: #f03612;
 }
 
 .feature-title {
@@ -848,7 +848,7 @@ em {
 }
 
 .why-choose-block:hover .why-choose-feature-title {
-  color: #ff5a00;
+  color: #f03612;
 }
 
 .why-choose-feature-title {
@@ -892,7 +892,7 @@ em {
 
 .why-choose-footer-quote {
   font-size: 0.95rem;
-  color: #ff5a00;
+  color: #f03612;
   margin: 0;
   line-height: 1.4;
   font-weight: 600;
@@ -950,17 +950,17 @@ em {
 .say-i-do-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 3rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 2rem;
 }
 
 .say-i-do-heading {
   font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: 600;
   color: #ffffff;
-  line-height: 1;
+  line-height: 1.2;
   margin: 0;
   max-width: 900px;
   font-family: 'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -972,6 +972,16 @@ em {
   font-weight: 500;
   color: #ffffff;
   display: inline;
+}
+
+.say-i-do-description {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0;
+  font-weight: 400;
+  text-align: left;
 }
 
 .say-i-do-button {
@@ -987,28 +997,46 @@ em {
   font-family: 'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  margin-top: 1rem;
 }
 
 .say-i-do-button:hover {
-  background: #ff5a00;
-  border-color: #ff5a00;
+  background: #f03612;
+  border-color: #f03612;
   color: #ffffff;
   transform: scale(1.05);
   box-shadow: 0 8px 24px rgba(255, 90, 0, 0.4);
 }
 
 .say-i-do-images {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
   width: 100%;
-  max-width: 1000px;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+.say-i-do-slider-wrapper {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 30s linear infinite;
+  width: fit-content;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.say-i-do-slider-wrapper:hover {
+  animation-play-state: paused;
 }
 
 .say-i-do-image-container {
-  width: 100%;
-  aspect-ratio: 1;
+  width: 300px;
+  height: 300px;
   border-radius: 12px;
   overflow: hidden;
   background: rgba(255, 140, 0, 0.1);
@@ -1017,6 +1045,7 @@ em {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .say-i-do-image-container img {
@@ -1041,18 +1070,22 @@ em {
     font-size: 2rem;
   }
 
+  .say-i-do-description {
+    font-size: 1rem;
+  }
+
   .say-i-do-button {
     padding: 1rem 2.5rem;
     font-size: 1rem;
   }
 
-  .say-i-do-images {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .say-i-do-image-container {
+    width: 250px;
+    height: 250px;
   }
 
-  .say-i-do-image-container {
-    height: 250px;
+  .say-i-do-slider-wrapper {
+    gap: 1.5rem;
   }
 }
 
@@ -1085,6 +1118,7 @@ em {
   align-items: flex-start;
   width: 100%;
   text-align: left;
+  justify-items: center;
 }
 
 .footer-section {

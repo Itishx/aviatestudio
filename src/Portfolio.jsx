@@ -1,8 +1,15 @@
 import './App.css'
 import './PortfolioStyles.css'
 import logo from './assets/aviatestudio.png'
+import { useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Portfolio({ onNavigateHome }) {
+  const [activeTab, setActiveTab] = useState('branding')
+  const [tabUnderlineStyle, setTabUnderlineStyle] = useState({})
+  const tabsContainerRef = useRef(null)
+  const navigate = useNavigate()
+
   const services = [
     {
       id: 'branding',
@@ -48,6 +55,37 @@ function Portfolio({ onNavigateHome }) {
     }
   ]
 
+  const handleTabHover = (e, tabId) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const containerRect = tabsContainerRef.current.getBoundingClientRect()
+    
+    setTabUnderlineStyle({
+      width: rect.width,
+      left: rect.left - containerRect.left
+    })
+  }
+
+  const handleTabClick = (serviceId) => {
+    setActiveTab(serviceId)
+    const element = document.getElementById(`service-${serviceId}`)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const handleTabsContainerLeave = () => {
+    const activeTabElement = tabsContainerRef.current?.querySelector(`[data-tab="${activeTab}"]`)
+    if (activeTabElement) {
+      const rect = activeTabElement.getBoundingClientRect()
+      const containerRect = tabsContainerRef.current.getBoundingClientRect()
+      
+      setTabUnderlineStyle({
+        width: rect.width,
+        left: rect.left - containerRect.left
+      })
+    }
+  }
+
   return (
     <>
       {/* Navigation Bar */}
@@ -61,8 +99,7 @@ function Portfolio({ onNavigateHome }) {
           <ul className="nav-menu">
             <li><a href="/#services">Services</a></li>
             <li><button onClick={onNavigateHome} style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', padding: '0.65rem 1.5rem', borderRadius: '50px', fontSize: '0.95rem', fontWeight: '400', fontFamily: "'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif", transition: 'all 0.3s ease' }}>Portfolio</button></li>
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#contact" className="cta-link">Get Started</a></li>
+            <li><a href="/#contact" className="cta-link">Contact Us</a></li>
           </ul>
         </div>
       </nav>
@@ -76,11 +113,30 @@ function Portfolio({ onNavigateHome }) {
             <p className="portfolio-intro">
               Explore our collection of work across different services. Each project represents our commitment to delivering exceptional results for our clients.
             </p>
+            <a href="#" className="download-portfolio-btn" download>
+              Download Our Portfolio
+            </a>
+          </div>
+
+          {/* Tabs Navigation */}
+          <div className="tabs-container" ref={tabsContainerRef} onMouseLeave={handleTabsContainerLeave}>
+            {services.map((service) => (
+              <button
+                key={service.id}
+                className={`tab-button ${activeTab === service.id ? 'active' : ''}`}
+                onClick={() => handleTabClick(service.id)}
+                onMouseEnter={(e) => handleTabHover(e, service.id)}
+                data-tab={service.id}
+              >
+                {service.title}
+              </button>
+            ))}
+            <div className="tab-underline" style={tabUnderlineStyle}></div>
           </div>
 
           {/* Service Sections */}
           {services.map((service) => (
-            <div key={service.id} className="service-section">
+            <div key={service.id} id={`service-${service.id}`} className="service-section">
               <div className="service-header">
                 <h2 className="service-title">{service.title}</h2>
               </div>

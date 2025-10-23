@@ -32,9 +32,33 @@
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.6;
-  margin: 0;
+  margin: 0 0 2rem 0;
   max-width: 700px;
   font-family: 'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.download-portfolio-btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.download-portfolio-btn:hover {
+  background: #f03612;
+  border-color: #f03612;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(240, 54, 18, 0.4);
 }
 
 /* Service Sections */
@@ -71,7 +95,7 @@
   display: inline-block;
   width: 4px;
   height: 2rem;
-  background: linear-gradient(180deg, #ff8c00, #ff5a00);
+  background: linear-gradient(180deg, #f03612, #f03612);
   border-radius: 2px;
 }
 
@@ -172,5 +196,70 @@
 
   .project-info {
     padding: 1rem;
+  }
+}
+
+/* ===== TABS NAVIGATION ===== */
+.tabs-container {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 3rem;
+  position: relative;
+  align-items: center;
+  padding: 0.4rem 0.6rem;
+  background: rgba(255, 140, 0, 0.02);
+  border-radius: 50px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tab-button {
+  position: relative;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  z-index: 2;
+  border-radius: 50px;
+}
+
+.tab-button:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.tab-button.active {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.tab-underline {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #f03612, #f03612);
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .tabs-container {
+    gap: 0.2rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.35rem 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tab-button {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
   }
 }

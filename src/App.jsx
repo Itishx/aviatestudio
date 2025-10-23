@@ -7,22 +7,13 @@ import caseStudy2 from './assets/sb.png'
 import heroImage1 from './assets/1.png'
 import heroImage2 from './assets/2.png'
 import heroImage3 from './assets/3.png'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import Portfolio from './Portfolio'
 
 function App() {
   const [currentImage, setCurrentImage] = useState(brandingImage)
-  const [currentPage, setCurrentPage] = useState('home')
-  const [scrollY, setScrollY] = useState(0)
-
-  // Handle scroll for parallax effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const navigate = useNavigate()
 
   const handleServiceHover = (serviceType) => {
     switch(serviceType) {
@@ -43,11 +34,7 @@ function App() {
     }
   }
 
-  if (currentPage === 'portfolio') {
-    return <Portfolio onNavigateHome={() => setCurrentPage('home')} />
-  }
-
-  return (
+  const HomePage = () => (
     <>
       {/* Navigation Bar */}
       <nav className="navbar">
@@ -57,9 +44,8 @@ function App() {
           </div>
           <ul className="nav-menu">
             <li><a href="#services">Services</a></li>
-            <li><button onClick={() => setCurrentPage('portfolio')} style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', padding: '0.65rem 1.5rem', borderRadius: '50px', fontSize: '0.95rem', fontWeight: '400', fontFamily: "'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif", transition: 'all 0.3s ease' }} className="nav-portfolio-link">Portfolio</button></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact" className="cta-link">Get Started</a></li>
+            <li><button onClick={() => navigate('/portfolio')} style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', padding: '0.65rem 1.5rem', borderRadius: '50px', fontSize: '0.95rem', fontWeight: '400', fontFamily: "'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif", transition: 'all 0.3s ease' }} className="nav-portfolio-link">Portfolio</button></li>
+            <li><a href="#contact" className="cta-link">Contact Us</a></li>
           </ul>
         </div>
       </nav>
@@ -126,28 +112,28 @@ function App() {
                   className="feature-block"
                   onMouseEnter={() => handleServiceHover('branding')}
                 >
-                  <h3 className="feature-title">01 - A-Z Branding</h3>
+                  <h3 className="feature-title">01) A-Z Branding</h3>
                   <p className="feature-description">We will build/ rebuild your brand identity from the ground up ↗</p>
                 </div>
                 <div 
                   className="feature-block"
                   onMouseEnter={() => handleServiceHover('social-media')}
                 >
-                  <h3 className="feature-title">02 - Social Media Management</h3>
+                  <h3 className="feature-title">02) Social Media Management</h3>
                   <p className="feature-description">Like Graphic Design, Ad creation, Marketing Strategy and more ↗</p>
                 </div>
                 <div 
                   className="feature-block"
                   onMouseEnter={() => handleServiceHover('web-development')}
                 >
-                  <h3 className="feature-title">03 - Complete Web Design and Development</h3>
+                  <h3 className="feature-title">03) Complete Web Design and Development</h3>
                   <p className="feature-description">Complete Web Design and Development + Deployment ↗</p>
                 </div>
                 <div 
                   className="feature-block"
                   onMouseEnter={() => handleServiceHover('video-editing')}
                 >
-                  <h3 className="feature-title">04 - LinkedIn Optimisation</h3>
+                  <h3 className="feature-title">04) LinkedIn Optimisation</h3>
                   <p className="feature-description">LinkedIn optimisation and growth for brands and founders ↗</p>
                 </div>
               </div>
@@ -292,16 +278,49 @@ function App() {
             <h2 className="say-i-do-heading">
               We're the marketing agency you can finally settle down with. <span className="say-i-do-highlight">So, will you?</span>
             </h2>
+            <p className="say-i-do-description">
+              Let's build something extraordinary together. Whether you're looking to scale your brand, reach new audiences, or transform your digital presence, we're here to make it happen. Ready to take the next step?
+            </p>
             <button className="say-i-do-button">I Do</button>
             <div className="say-i-do-images">
-              <div className="say-i-do-image-container">
-                <img src={heroImage1} alt="Portfolio showcase 1" />
-              </div>
-              <div className="say-i-do-image-container">
-                <img src={heroImage2} alt="Portfolio showcase 2" />
-              </div>
-              <div className="say-i-do-image-container">
-                <img src={heroImage3} alt="Portfolio showcase 3" />
+              <div className="say-i-do-slider-wrapper">
+                <div className="say-i-do-image-container">
+                  <img src={heroImage1} alt="Portfolio showcase 1" />
+                </div>
+                <div className="say-i-do-image-container">
+                  <img src={heroImage2} alt="Portfolio showcase 2" />
+                </div>
+                <div className="say-i-do-image-container">
+                  <img src={heroImage3} alt="Portfolio showcase 3" />
+                </div>
+                <div className="say-i-do-image-container">
+                  <img src={brandingImage} alt="Portfolio showcase 4" />
+                </div>
+                <div className="say-i-do-image-container">
+                  <img src={gdImage} alt="Portfolio showcase 5" />
+                </div>
+                <div className="say-i-do-image-container">
+                  <img src={caseStudy1} alt="Portfolio showcase 6" />
+                </div>
+                {/* Duplicate for seamless loop */}
+                <div className="say-i-do-image-container">
+                  <img src={heroImage1} alt="Portfolio showcase 1" />
+                </div>
+                <div className="say-i-do-image-container">
+                  <img src={heroImage2} alt="Portfolio showcase 2" />
+                </div>
+                <div className="say-i-do-image-container">
+                  <img src={heroImage3} alt="Portfolio showcase 3" />
+                </div>
+                <div className="say-i-do-image-container">
+                  <img src={brandingImage} alt="Portfolio showcase 4" />
+                </div>
+                <div className="say-i-do-image-container">
+                  <img src={gdImage} alt="Portfolio showcase 5" />
+                </div>
+                <div className="say-i-do-image-container">
+                  <img src={caseStudy1} alt="Portfolio showcase 6" />
+                </div>
               </div>
             </div>
           </div>
@@ -354,6 +373,13 @@ function App() {
         </div>
       </footer>
     </>
+  )
+
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/portfolio" element={<Portfolio onNavigateHome={() => navigate('/')} />} />
+    </Routes>
   )
 }
 
